@@ -1,0 +1,39 @@
+.standard .cg-wrap piece._-piece {
+    background-image: url('../../images/pieces/green/Duck.svg');
+}
+.standard .cg-wrap piece.p-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/bP.svg');
+}
+.standard .cg-wrap piece.b-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/wB.svg');
+}
+.standard .cg-wrap piece.n-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/wN.svg');
+}
+.standard .cg-wrap piece.r-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/wR.svg');
+}
+.standard .cg-wrap piece.q-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/wQ.svg');
+}
+.standard .cg-wrap piece.k-piece.white {
+    background-image: url('../../images/pieces/kiwen-suwi/wK.svg');
+}
+.standard .cg-wrap piece.p-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bP.svg');
+}
+.standard .cg-wrap piece.b-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bB.svg');
+}
+.standard .cg-wrap piece.n-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bN.svg');
+}
+.standard .cg-wrap piece.r-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bR.svg');
+}
+.standard .cg-wrap piece.q-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bQ.svg');
+}
+.standard .cg-wrap piece.k-piece.black {
+    background-image: url('../../images/pieces/kiwen-suwi/bK.svg');
+}
