@@ -89,7 +89,7 @@ class FairyBoard:
 
     @staticmethod
     def start_fen(variant, chess960=False, disabled_fen=""):
-        if chess960:
+        if chess960 or variant == "paradigm30":
             new_fen = FairyBoard.shuffle_start(variant)
             while new_fen == disabled_fen:
                 new_fen = FairyBoard.shuffle_start(variant)
@@ -237,6 +237,7 @@ class FairyBoard:
         castl = ""
         capa = variant in ("capablanca", "capahouse")
         seirawan = variant in ("seirawan", "shouse")
+        para = variant == "paradigm30"
 
         # https://www.chessvariants.com/contests/10/crc.html
         # we don't skip spositions that have unprotected pawns
@@ -265,17 +266,30 @@ class FairyBoard:
             positions = [0, 1, 2, 3, 4, 5, 6, 7]
             bright = [1, 3, 5, 7]
             dark = [0, 2, 4, 6]
+        if para:
+            positions.remove(0)
+            positions.remove(7)
+            positions.remove(4)
+            bright.remove(7)
+            dark.remove(0)
+            dark.remove(4)
 
         # 4. one bishop has to be placed upon a bright square
         piece_pos = random.choice(bright)
-        board[piece_pos] = "b"
+        if para:
+            board[piece_pos] = "d"
+        else:
+            board[piece_pos] = "b"
         positions.remove(piece_pos)
         if seirawan:
             castl += FILES[piece_pos]
 
         # 5. one bishop has to be placed upon a dark square
         piece_pos = random.choice(dark)
-        board[piece_pos] = "b"
+        if para:
+            board[piece_pos] = "d"
+        else:
+            board[piece_pos] = "b"
         positions.remove(piece_pos)
         if seirawan:
             castl += FILES[piece_pos]
@@ -307,17 +321,19 @@ class FairyBoard:
             castl += FILES[piece_pos]
 
         # 9. set the king upon the center of three free squares left
+        if para:
+            positions = [0,4,7]
         piece_pos = positions[1]
         board[piece_pos] = "k"
 
         # 10. set the rooks upon the both last free squares left
         piece_pos = positions[0]
         board[piece_pos] = "r"
-        castl += "q" if seirawan else FILES[piece_pos]
+        castl += "q" if seirawan or para else FILES[piece_pos]
 
         piece_pos = positions[2]
         board[piece_pos] = "r"
-        castl += "k" if seirawan else FILES[piece_pos]
+        castl += "k" if seirawan or para else FILES[piece_pos]
 
         fen = "".join(board)
         if capa:

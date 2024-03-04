@@ -157,6 +157,8 @@ VARIANTS = (
     "chennis",
     "spartan",
     "ataxx",
+    "paradigm30",
+    "sandbox",
 )
 
 VARIANT_ICONS = {
@@ -211,6 +213,8 @@ VARIANT_ICONS = {
     "mansindam": "⛵",
     "duck": "🦆",
     "spartan": "⍺",
+    "paradigm30": "🎾",
+    "sandbox": "🎾",
     "kingofthehill": "🏴",
     "kingofthehill960": "🏁",
     "3check": "☰",
@@ -263,6 +267,8 @@ CATEGORIES = {
         "shogun",
         "hoppelpoppel",
         "mansindam",
+        "paradigm30",
+        "sandbox",
     ),
     "army": (
         "orda",
@@ -413,6 +419,8 @@ TRANSLATED_VARIANT_NAMES = {
     "3check": _("Three check"),
     "3check960": _("Three check 960"),
     "mansindam": _("Mansindam"),
+    "paradigm30": _("Paradigm Chess30"),
+    "sandbox": _("Sandbox"),
 }
 
 del _

@@ -41,7 +41,7 @@ export const BOARD_FAMILIES: Record<string, BoardFamily> = {
 
 export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     ataxx: { pieceCSS: ["disguised", "virus", "zombie", "cat-dog"] },
-    standard: { pieceCSS: ["standard", "green", "alpha", "chess_kaneo", "santa", "maestro", "dubrovny", "disguised", "atopdown"] },
+    standard: { pieceCSS: ["standard", "green", "alpha", "chess_kaneo", "santa", "maestro", "dubrovny", "disguised", "atopdown", "kiwen-suwi"] },
     capa: { pieceCSS: ["capa0", "capa1", "capa2", "capa3", "capa4", "capa5", "disguised"] },
     seirawan: { pieceCSS: ["seir1", "seir0", "seir2", "seir3", "seir4", "seir5", "disguised"] },
     makruk: { pieceCSS: ["makrukwb", "makrukwr", "makruk", "makruks", "makruki", "makrukc", "disguised"] },
@@ -65,6 +65,8 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     chennis: { pieceCSS: ["chennis0", "chennis1", "chennis2", "chennis3", "chennis4", "disguised"] },
     spartan: { pieceCSS: ["spartan0", "disguised"] },
     mansindam: { pieceCSS: ["mansindam2", "mansindam1", "mansindam3", "mansindam4", "disguised"] },
+    paradigm: { pieceCSS: ["paradigm0", "disguised"] },
+    sandbox: { pieceCSS: ["sandbox0", "sandbox1", "disguised"] },
 };
 
 export interface Variant {
@@ -885,6 +887,24 @@ export const VARIANTS: Record<string, Variant> = {
         promotion: { type: "shogi", roles: ["n", "b", "r", "c", "m", "p"] },
     }),
 
+    paradigm30: variant({
+        name: "paradigm30", tooltip: "Paradigm Chess 30",
+        startFen: "rndqkdnr/pppppppp/8/8/8/8/PPPPPPPP/RNDQKDNR w KQkq - 0 1",
+        icon: "🎾",
+        boardFamily: "standard8x8", pieceFamily: "paradigm",
+        pieceRow: ["k", "q", "r", "n", "d", "p"],
+	    rules: { enPassant: true },
+    }),
+
+    sandbox: variant({
+        name: "sandbox", tooltip: "Just for fun",
+        startFen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        icon: "🎾",
+        boardFamily: "standard8x8", pieceFamily: "sandbox",
+        pieceRow: ["k", "q", "r", "b", "n", "p", "f", "w", "c", "m", "a", "d", "g", "u", "h", "o", "s", "l"],
+	    rules: { enPassant: true },
+    }),
+
     // We support the functionality to import/store/analyze some variants
     // but don't want to add them to leaderboard page
     embassy: variant({
@@ -942,6 +962,8 @@ export const noPuzzleVariants = [
     "minixiangqi",
     "grandhouse",
     "shinobiplus",
+    "paradigm30",
+    "sandbox"
 ]
 
 export const variantGroups: { [ key: string ]: { variants: string[] } } = {
@@ -949,7 +971,7 @@ export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     sea:      { variants: [ "makruk", "makpong", "cambodian", "sittuyin", "asean" ] },
     shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
-    fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam" ] },
+    fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox" ] },
     army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan" ] },
     other:    { variants: [ "ataxx" ] }
 };

@@ -55,6 +55,8 @@ V2C = {
     "spartan": "N",
     "kingofthehill": "B",
     "3check": "X",
+    "paradigm30": "R",
+    "sandbox": "Y",
 }
 C2V = {v: k for k, v in V2C.items()}
 
