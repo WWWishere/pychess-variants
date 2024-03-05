@@ -78,16 +78,16 @@
     background-image: url('../../images/pieces/alpha/sandbox/wG.svg');
 }
 .sandbox .cg-wrap piece.u-piece.black {
-    background-image: url('../../images/pieces/alpha/sandbox/bNN.png');
+    background-image: url('../../images/pieces/alpha/sandbox/bNN.svg');
 }
 .sandbox .cg-wrap piece.u-piece.white {
-    background-image: url('../../images/pieces/alpha/sandbox/wNN.png');
+    background-image: url('../../images/pieces/alpha/sandbox/wNN.svg');
 }
 .sandbox .cg-wrap piece.h-piece.black {
-    background-image: url('../../images/pieces/alpha/sandbox/bH.png');
+    background-image: url('../../images/pieces/alpha/sandbox/bH.svg');
 }
 .sandbox .cg-wrap piece.h-piece.white {
-    background-image: url('../../images/pieces/alpha/sandbox/wH.png');
+    background-image: url('../../images/pieces/alpha/sandbox/wH.svg');
 }
 .sandbox .cg-wrap piece.l-piece.black {
     background-image: url('../../images/pieces/alpha/sandbox/bL.svg');
