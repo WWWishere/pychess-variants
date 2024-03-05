@@ -66,7 +66,7 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     spartan: { pieceCSS: ["spartan0", "disguised"] },
     mansindam: { pieceCSS: ["mansindam2", "mansindam1", "mansindam3", "mansindam4", "disguised"] },
     paradigm: { pieceCSS: ["paradigm0", "disguised"] },
-    sandbox: { pieceCSS: ["sandbox0", "sandbox1", "disguised"] },
+    sandbox: { pieceCSS: ["sandbox0", "sandbox1", "sandbox2", "disguised"] },
 };
 
 export interface Variant {
