@@ -60,6 +60,9 @@ label.piece.piece7.standard {
 label.piece.piece8.standard {
     background-image: url('images/pieces/atopdown/wn.svg');
 }
+label.piece.piece9.standard {
+    background-image: url('images/pieces/kiwen-suwi/wN.svg');
+}
 label.piece.piece0.capa {
     background-image: url('images/pieces/merida/wA.svg');
 }
