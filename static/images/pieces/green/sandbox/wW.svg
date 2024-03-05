@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="45"
+   height="45"
+   id="svg18"
+   sodipodi:docname="Chess_rlt45.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs22">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath931">
+      <rect
+         style="opacity:0.35;fill:#ff0000;stroke-linecap:round;stroke-linejoin:round"
+         id="rect933"
+         width="13.240938"
+         height="36.844349"
+         x="5.9488277"
+         y="5.2650318" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath935">
+      <rect
+         style="opacity:0.35;fill:#ff0000;stroke-linecap:round;stroke-linejoin:round"
+         id="rect937"
+         width="13.049041"
+         height="35.117271"
+         x="25.810236"
+         y="6.896162" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview20"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="10.422222"
+     inkscape:cx="19.285714"
+     inkscape:cy="22.452026"
+     inkscape:window-width="1280"
+     inkscape:window-height="649"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <g
+     id="g955"
+     transform="translate(3.3561179,-1.8)">
+    <g
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(0,0.3)"
+       id="g16"
+       clip-path="url(#clipPath931)">
+      <path
+         d="M 9,39 H 36 V 36 H 9 Z"
+         style="stroke-linecap:butt"
+         id="path2" />
+      <path
+         d="m 12,36 v -4 h 21 v 4 z"
+         style="stroke-linecap:butt"
+         id="path4" />
+      <path
+         d="M 11,14 V 9 h 4 v 2 h 5 V 9 h 5 v 2 h 5 V 9 h 4 v 5"
+         style="stroke-linecap:butt"
+         id="path6" />
+      <path
+         d="m 34,14 -3,3 H 14 l -3,-3"
+         id="path8" />
+      <path
+         d="M 31,17 V 29.5 H 14 V 17"
+         style="stroke-linecap:butt;stroke-linejoin:miter"
+         id="path10" />
+      <path
+         d="m 31,29.5 1.5,2.5 h -20 L 14,29.5"
+         id="path12" />
+      <path
+         d="M 11,14 H 34"
+         style="fill:none;stroke:#000000;stroke-linejoin:miter"
+         id="path14" />
+    </g>
+    <g
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(-6.7122359,0.29999993)"
+       id="g373"
+       clip-path="url(#clipPath935)">
+      <path
+         d="M 9,39 H 36 V 36 H 9 Z"
+         style="stroke-linecap:butt"
+         id="path359" />
+      <path
+         d="m 12,36 v -4 h 21 v 4 z"
+         style="stroke-linecap:butt"
+         id="path361" />
+      <path
+         d="M 11,14 V 9 h 4 v 2 h 5 V 9 h 5 v 2 h 5 V 9 h 4 v 5"
+         style="stroke-linecap:butt"
+         id="path363" />
+      <path
+         d="m 34,14 -3,3 H 14 l -3,-3"
+         id="path365" />
+      <path
+         d="M 31,17 V 29.5 H 14 V 17"
+         style="stroke-linecap:butt;stroke-linejoin:miter"
+         id="path367" />
+      <path
+         d="m 31,29.5 1.5,2.5 h -20 L 14,29.5"
+         id="path369" />
+      <path
+         d="M 11,14 H 34"
+         style="fill:none;stroke:#000000;stroke-linejoin:miter"
+         id="path371" />
+    </g>
+  </g>
+</svg>
