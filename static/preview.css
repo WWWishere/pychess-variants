@@ -513,5 +513,8 @@ label.piece.piece2.sandbox {
     background-image: url('images/pieces/green/wN.svg');
 }
 label.piece.piece3.sandbox {
+    background-image: url('images/pieces/alpha/wN.svg');
+}
+label.piece.piece4.sandbox {
     background-image: url('images/pieces/disguised/w.svg');
 }
