@@ -67,6 +67,7 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     mansindam: { pieceCSS: ["mansindam2", "mansindam1", "mansindam3", "mansindam4", "disguised"] },
     paradigm: { pieceCSS: ["paradigm0", "disguised"] },
     sandbox: { pieceCSS: ["sandbox0", "sandbox1", "sandbox2", "sandbox3", "disguised"] },
+    fairyland: { pieceCSS: ["fairy0", "disguised"] },
 };
 
 export interface Variant {
@@ -905,6 +906,15 @@ export const VARIANTS: Record<string, Variant> = {
 	    rules: { enPassant: true },
     }),
 
+    fairyland: variant({
+        name: "fairyland", tooltip: _("Fairy tale chess"),
+        startFen: "awuykgwa/ffffffff/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1",
+        icon: "}",
+        boardFamily: "standard8x8", pieceFamily: "fairyland",
+        pieceRow: { white: ["k", "q", "r", "b", "n", "p"], black: ["k", "y", "g", "u", "w", "a", "f"] },
+        ui: { boardMark: 'fairyland' },
+    }),
+
     // We support the functionality to import/store/analyze some variants
     // but don't want to add them to leaderboard page
     embassy: variant({
@@ -963,7 +973,8 @@ export const noPuzzleVariants = [
     "grandhouse",
     "shinobiplus",
     "paradigm30",
-    "sandbox"
+    "sandbox",
+    "fairyland"
 ]
 
 export const variantGroups: { [ key: string ]: { variants: string[] } } = {
@@ -972,7 +983,7 @@ export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
     fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox" ] },
-    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan" ] },
+    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland" ] },
     other:    { variants: [ "ataxx" ] }
 };
 

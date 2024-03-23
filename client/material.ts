@@ -31,6 +31,33 @@ export function equivalentRole(role: cg.Role, equivalences: Equivalence, capture
     }
 }
 
+export function scoreDiff(variant :Variant, fen: string) {
+    let materialScore = 0;
+    if (variant.name === 'fairyland') {
+        const board = fen.split(' ')[0]
+        for (const c of board) {
+            switch (c) {
+                case 'P': materialScore += 1; break;
+                case 'N':
+                case 'B': materialScore += 3; break;
+                case 'R': materialScore += 5; break;
+                case 'Q': materialScore += 9; break;
+
+                case 'f': materialScore -= 1; break;
+                case 'w': materialScore -= 2; break;
+                case 'a': materialScore -= 2.5; break;
+                case 'u': materialScore -= 5; break;
+                case 'y': materialScore -= 9; break;
+                case 'g': materialScore -= 8; break;
+            }
+        }
+        return materialScore;
+    }
+    else {
+        return 0;
+    }
+}
+
 export function calculateDiff(fen: string, dimensions: cg.BoardDimensions, equivalences: Equivalence, captureToHand: boolean): MaterialDiff {
     const materialDiff : MaterialDiff = new Map();
     const boardState = fenRead(fen, dimensions);
@@ -84,6 +111,15 @@ function generateContent(variant: Variant, fen: string): [VNode[], VNode[]] {
         for (let i = 0; i < pieceDiff; i++)
         currentDiv.push(h('mpiece.' + role));
         content.push(h('div', currentDiv));
+    }
+    const imbalscore = scoreDiff(variant, fen);
+    if (imbalscore !== 0) {
+        const altDiv: VNode[] = [];
+        const sContent = imbalscore > 0 ? whiteContent : blackContent;
+        const positscore = Math.abs(imbalscore);
+        const score = '+' + positscore.toString();
+        altDiv.push(h('mpiece.score', score));
+        sContent.push(h('div', altDiv));
     }
     return [whiteContent, blackContent];
 }

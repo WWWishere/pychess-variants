@@ -518,3 +518,10 @@ label.piece.piece3.sandbox {
 label.piece.piece4.sandbox {
     background-image: url('images/pieces/disguised/w.svg');
 }
+
+label.piece.piece0.fairyland {
+    background-image: url('images/pieces/fairyland/bK.svg');
+}
+label.piece.piece1.fairyland {
+    background-image: url('images/pieces/disguised/b.svg');
+}

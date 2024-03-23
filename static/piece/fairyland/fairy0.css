@@ -1,0 +1,45 @@
+.fairyland .cg-wrap piece._-piece {
+    background-image: url('../../images/pieces/merida/Duck.svg');
+}
+.fairyland .cg-wrap piece.p-piece.white {
+    background-image: url('../../images/pieces/merida/wP.svg');
+}
+.fairyland .cg-wrap piece.b-piece.white {
+    background-image: url('../../images/pieces/merida/wB.svg');
+}
+.fairyland .cg-wrap piece.n-piece.white {
+    background-image: url('../../images/pieces/merida/wN.svg');
+}
+.fairyland .cg-wrap piece.r-piece.white {
+    background-image: url('../../images/pieces/merida/wR.svg');
+}
+.fairyland .cg-wrap piece.q-piece.white {
+    background-image: url('../../images/pieces/merida/wQ.svg');
+}
+.fairyland .cg-wrap piece.k-piece.white {
+    background-image: url('../../images/pieces/merida/wK.svg');
+}
+.fairyland .cg-wrap piece.p-piece.black {
+    background-image: url('../../images/pieces/merida/bP.svg');
+}
+.fairyland .cg-wrap piece.k-piece.black {
+    background-image: url('../../images/pieces/fairyland/bK.svg');
+}
+.fairyland .cg-wrap piece.f-piece.black {
+    background-image: url('../../images/pieces/fairyland/bF.svg');
+}
+.fairyland .cg-wrap piece.a-piece.black {
+    background-image: url('../../images/pieces/fairyland/bA.svg');
+}
+.fairyland .cg-wrap piece.u-piece.black {
+    background-image: url('../../images/pieces/fairyland/bU.svg');
+}
+.fairyland .cg-wrap piece.y-piece.black {
+    background-image: url('../../images/pieces/fairyland/bY.svg');
+}
+.fairyland .cg-wrap piece.g-piece.black {
+    background-image: url('../../images/pieces/fairyland/bG.svg');
+}
+.fairyland .cg-wrap piece.w-piece.black {
+    background-image: url('../../images/pieces/fairyland/bW.svg');
+}
