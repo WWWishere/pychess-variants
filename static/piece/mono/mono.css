@@ -12,6 +12,13 @@ mpiece.p-piece {
     display: inline-block;
     margin-left: 10px;
 }
+mpiece.score {
+    margin-top: 38px;
+    margin-left: -5px;
+    font-size: 15px;
+    min-height: 100%;
+    font-family: 'Noto Sans', Sans-Serif;
+}
 mpiece.k-piece {
     background-image: url('../../images/pieces/mono/king.svg');
 }
@@ -178,4 +185,23 @@ mpiece.p-piece {
 }
 .chak mpiece.pp-piece {
     background-image: url('../../images/pieces/mono/warrior.svg');
+}
+.fairyland mpiece.f-piece {
+    margin-left: -15px;
+    background-image: url('../../images/pieces/mono/fairy.svg');
+}
+.fairyland mpiece.w-piece {
+    background-image: url('../../images/pieces/mono/watcher.svg');
+}
+.fairyland mpiece.a-piece {
+    background-image: url('../../images/pieces/mono/alibaba.svg');
+}
+.fairyland mpiece.u-piece {
+    background-image: url('../../images/pieces/mono/unicorn.svg');
+}
+.fairyland mpiece.g-piece {
+    background-image: url('../../images/pieces/mono/fairyguard.svg');
+}
+.fairyland mpiece.y-piece {
+    background-image: url('../../images/pieces/mono/fairyqueen.svg');
 }

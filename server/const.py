@@ -159,6 +159,7 @@ VARIANTS = (
     "ataxx",
     "paradigm30",
     "sandbox",
+    "fairyland",
 )
 
 VARIANT_ICONS = {
@@ -215,6 +216,7 @@ VARIANT_ICONS = {
     "spartan": "⍺",
     "paradigm30": "🎾",
     "sandbox": "🎾",
+    "fairyland": "}",
     "kingofthehill": "🏴",
     "kingofthehill960": "🏁",
     "3check": "☰",
@@ -279,6 +281,7 @@ CATEGORIES = {
         "chennis",
         "shinobiplus",
         "spartan",
+        "fairyland",
     ),
     "makruk": ("makruk", "makpong", "cambodian", "sittuyin", "asean"),
     "shogi": (
@@ -421,6 +424,7 @@ TRANSLATED_VARIANT_NAMES = {
     "mansindam": _("Mansindam"),
     "paradigm30": _("Paradigm Chess30"),
     "sandbox": _("Sandbox"),
+    "fairyland": _("Fairyland"),
 }
 
 del _

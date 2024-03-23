@@ -22,7 +22,7 @@ export type PromotionType = "regular" | "shogi";
 export type TimeControlType = "incremental" | "byoyomi";
 export type CountingType = "makruk" | "asean";
 export type MaterialPointType = "janggi" | "ataxx";
-export type BoardMarkType = "campmate" | "kingofthehill";
+export type BoardMarkType = "campmate" | "kingofthehill" | "fairyland";
 export type PieceSoundType = "regular" | "atomic" | "shogi";
 
 const handicapKeywords = [ "HC", "Handicap", "Odds" ];
