@@ -100,6 +100,7 @@ export function validFen(variant: Variant, fen: string): boolean {
         ((variantName === "dobutsu") ? "Hh" : "") +
         ((variantName === "sandbox") ? "FfWwCcMmAaDdGgUuHhOoSsLl" : "") +
         ((variantName === "duck" || variantName === "ataxx") ? "*" : "") +
+        ((variantName === "randomized") ? "NBRQCcMmAaGgDdIiHhLlOoWwYyUuVv" : "") +
         "~+0123456789[]-";
     const alien = (element: string) => !good.includes(element);
     if (placement.split('').some(alien)) return false;
