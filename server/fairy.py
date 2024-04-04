@@ -678,6 +678,8 @@ class FairyBoard:
         fen = "".join(board)
         if capa:
             body = "/pppppppppp/10/10/10/10/PPPPPPPPPP/"
+        elif rand:
+            body = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/"
         else:
             body = "/pppppppp/8/8/8/8/PPPPPPPP/"
 

@@ -1,5 +1,5 @@
 .randomized .cg-wrap piece.p-piece.white {
-    background-image: url('../../images/pieces/mansindam/intl/wp.svg');
+    background-image: url('../../images/pieces/alpha/wP.svg');
 }
 .randomized .cg-wrap piece.n-piece.white {
     background-image: url('../../images/pieces/mansindam/intl/wn.svg');
@@ -17,7 +17,7 @@
     background-image: url('../../images/pieces/mansindam/intl/wk.svg');
 }
 .randomized .cg-wrap piece.p-piece.black {
-    background-image: url('../../images/pieces/mansindam/intl/bp.svg');
+    background-image: url('../../images/pieces/mansindam/intl/randomized/bp.svg');
 }
 .randomized .cg-wrap piece.n-piece.black {
     background-image: url('../../images/pieces/mansindam/intl/bn.svg');
@@ -88,13 +88,13 @@
     background-image: url('../../images/pieces/mansindam/intl/randomized/ww.svg');
 }
 .randomized .cg-wrap piece.w-piece.black {
-    background-image: url('../../images/pieces/mansindam/intl/randomized/ww.svg');
+    background-image: url('../../images/pieces/mansindam/intl/randomized/bw.svg');
 }
 .randomized .cg-wrap piece.y-piece.white {
     background-image: url('../../images/pieces/mansindam/intl/randomized/wy.svg');
 }
 .randomized .cg-wrap piece.y-piece.black {
-    background-image: url('../../images/pieces/mansindam/intl/randomized/wy.svg');
+    background-image: url('../../images/pieces/mansindam/intl/randomized/by.svg');
 }
 .randomized .cg-wrap piece.u-piece.white {
     background-image: url('../../images/pieces/mansindam/intl/w+c.svg');
