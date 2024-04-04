@@ -525,3 +525,10 @@ label.piece.piece0.fairyland {
 label.piece.piece1.fairyland {
     background-image: url('images/pieces/disguised/b.svg');
 }
+
+label.piece.piece0.fairyland {
+    background-image: url('images/pieces/mansindam/intl/wn.svg');
+}
+label.piece.piece1.fairyland {
+    background-image: url('images/pieces/disguised/w.svg');
+}

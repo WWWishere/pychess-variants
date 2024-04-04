@@ -89,7 +89,7 @@ class FairyBoard:
 
     @staticmethod
     def start_fen(variant, chess960=False, disabled_fen=""):
-        if chess960 or variant == "paradigm30":
+        if chess960 or variant in ("paradigm30", "randomized"):
             new_fen = FairyBoard.shuffle_start(variant)
             while new_fen == disabled_fen:
                 new_fen = FairyBoard.shuffle_start(variant)
@@ -238,6 +238,7 @@ class FairyBoard:
         capa = variant in ("capablanca", "capahouse")
         seirawan = variant in ("seirawan", "shouse")
         para = variant == "paradigm30"
+        rand = variant == "randomized"
 
         # https://www.chessvariants.com/contests/10/crc.html
         # we don't skip spositions that have unprotected pawns
@@ -261,6 +262,12 @@ class FairyBoard:
             board[piece_pos] = "q" if piece == "a" else "a"
             positions.remove(piece_pos)
             dark.remove(piece_pos)
+        elif rand:
+            board = [""] * 8
+            positions = [0, 1, 2, 3, 5, 6, 7]
+            bright = [1, 3, 5, 7]
+            dark = [0, 2, 6]
+            selection = [""] * 7
         else:
             board = [""] * 8
             positions = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -274,66 +281,399 @@ class FairyBoard:
             dark.remove(0)
             dark.remove(4)
 
+        # 3.5. generate piece army for randomized mode
+        if rand:
+            score = 62
+            values = [6, 9, 10, 11, 12, 12, 13, 14, 16, 16, 17, 17, 18, 18, 19, 19, 24]
+            values_m = [6, 6, 9, 10, 11, 12, 13, 14]
+            values_ms = [6, 6, 6, 9, 10, 11, 12, 13]
+            values_mss = [6, 6, 6, 6, 9, 9, 10, 10, 11, 12]
+            values_sm = [6, 6, 6, 6, 9, 10]
+            values_s = [6, 6, 6, 6, 6, 10]
+            selection_num = [0] * 7
+
+            def rollonce(score):
+                amtLeft = score
+                result = [0] * 5
+                k = random.choice(values_m)
+                result[0] = k
+                amtLeft -= k
+                if amtLeft <= 24:
+                    result[1] = 6
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 25:
+                    result[1] = 9
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 4
+                elif amtLeft <= 26:
+                    result[1] = 10
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 4
+                elif amtLeft <= 27:
+                    result[1] = 9
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 28:
+                    result[1] = 10
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 29:
+                    result[1] = 10
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 4
+                elif amtLeft <= 30:
+                    result[1] = 9
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 31:
+                    result[1] = 10
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 32:
+                    result[1] = 10
+                    result[2] = 10
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 33:
+                    result[1] = 12
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 34:
+                    result[1] = 12
+                    result[2] = 10
+                    result[3] = 6
+                    result[4] = 6
+                else:
+                    result[1] = 10
+                    result[2] = 10
+                    result[3] = 9
+                    result[4] = 6
+                return result
+
+            def rollhalf(score):
+                amtLeft = score
+                result = [0] * 5
+                k = random.choice(values_m)
+                l = random.choice(values_sm)
+                result[0] = k
+                result[1] = l
+                amtLeft -= k
+                amtLeft -= l
+                if amtLeft <= 18:
+                    result[2] = 6
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 19:
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 4
+                elif amtLeft <= 20:
+                    result[2] = 10
+                    result[3] = 6
+                    result[4] = 4
+                elif amtLeft <= 21:
+                    result[2] = 9
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 22:
+                    result[2] = 10
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 23:
+                    result[2] = 11
+                    result[3] = 6
+                    result[4] = 6
+                elif amtLeft <= 24:
+                    result[2] = 9
+                    result[3] = 9
+                    result[4] = 6
+                elif amtLeft <= 25:
+                    result[2] = 10
+                    result[3] = 9
+                    result[4] = 6
+                elif amtLeft <= 26:
+                    result[2] = 10
+                    result[3] = 10
+                    result[4] = 6
+                elif amtLeft <= 27:
+                    result[2] = 12
+                    result[3] = 9
+                    result[4] = 6
+                elif amtLeft <= 28:
+                    result[2] = 10
+                    result[3] = 9
+                    result[4] = 9
+                elif amtLeft <= 29:
+                    result[2] = 10
+                    result[3] = 10
+                    result[4] = 9
+                elif amtLeft <= 30:
+                    result[2] = 12
+                    result[3] = 12
+                    result[4] = 6
+                elif amtLeft <= 31:
+                    result[2] = 12
+                    result[3] = 10
+                    result[4] = 9
+                elif amtLeft <= 32:
+                    result[2] = 12
+                    result[3] = 11
+                    result[4] = 9
+                elif amtLeft <= 33:
+                    result[2] = 12
+                    result[3] = 11
+                    result[4] = 10
+                elif amtLeft <= 34:
+                    result[2] = 12
+                    result[3] = 12
+                    result[4] = 10
+                else:
+                    result[2] = 14
+                    result[3] = 12
+                    result[4] = 9
+                return result
+
+            def rolltwice(score):
+                amtLeft = score
+                result = [0] * 5
+                k = random.choice(values_m)
+                l = random.choice(values_mss)
+                result[0] = k
+                result[1] = l
+                amtLeft -= k
+                amtLeft -= l
+                if amtLeft <= 24:
+                    result[2] = 11
+                    result[3] = 10
+                    result[4] = 6
+                elif amtLeft <= 25:
+                    result[2] = 10
+                    result[3] = 9
+                    result[4] = 6
+                elif amtLeft <= 26:
+                    result[2] = 10
+                    result[3] = 10
+                    result[4] = 6
+                elif amtLeft <= 27:
+                    result[2] = 11
+                    result[3] = 10
+                    result[4] = 6
+                elif amtLeft <= 28:
+                    result[2] = 13
+                    result[3] = 9
+                    result[4] = 6
+                elif amtLeft <= 29:
+                    result[2] = 10
+                    result[3] = 10
+                    result[4] = 9
+                elif amtLeft <= 30:
+                    result[2] = 11
+                    result[3] = 10
+                    result[4] = 9
+                elif amtLeft <= 31:
+                    result[2] = 12
+                    result[3] = 10
+                    result[4] = 9
+                elif amtLeft <= 32:
+                    result[2] = 12
+                    result[3] = 10
+                    result[4] = 10
+                elif amtLeft <= 33:
+                    result[2] = 12
+                    result[3] = 11
+                    result[4] = 10
+                elif amtLeft <= 34:
+                    result[2] = 12
+                    result[3] = 12
+                    result[4] = 10
+                elif amtLeft <= 35:
+                    result[2] = 14
+                    result[3] = 12
+                    result[4] = 9
+                else:
+                    result[2] = 14
+                    result[3] = 12
+                    result[4] = 12
+                return result
+
+            i = random.choice(values)
+            selection_num[0] = i
+            score -= i
+            if i == 24:
+                j = random.choice(values_s)
+            elif i == 19:
+                j = random.choice(values_ms)
+            else:
+                j = random.choice(values_m)
+            selection_num[1] = j
+            score -= j
+            if score <= 28:
+                selection_num[2] = 6
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 4
+            elif score <= 30:
+                selection_num[2] = 6
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 31:
+                selection_num[2] = 9
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 4
+            elif score <= 32:
+                selection_num[2] = 10
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 4
+            elif score <= 33:
+                selection_num[2] = 9
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 34:
+                selection_num[2] = 10
+                selection_num[3] = 6
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 35:
+                selection_num[2] = 10
+                selection_num[3] = 9
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 4
+            elif score <= 36:
+                selection_num[2] = 9
+                selection_num[3] = 9
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 37:
+                selection_num[2] = 10
+                selection_num[3] = 9
+                selection_num[4] = 6
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 41:
+                selection_num[2:7] = rollonce(score)
+            elif score <= 47:
+                selection_num[2:7] = rollhalf(score)
+            else:
+                selection_num[2:7] = rolltwice(score)
+            for m in range(0, 7):
+                n = selection_num[m]
+                if n == 4:
+                    selection[m] = "l"
+                elif n == 6:
+                    selection[m] = random.choice(("b", "n", "d", "y"))
+                elif n == 9:
+                    selection[m] = "w"
+                elif n == 10:
+                    selection[m] = "r"
+                elif n == 11:
+                    selection[m] = "h"
+                elif n == 12:
+                    selection[m] = random.choice(("g", "o"))
+                elif n == 13:
+                    selection[m] = "i"
+                elif n == 14:
+                    selection[m] = "c"
+                elif n == 16:
+                    selection[m] = "m"
+                elif n == 17:
+                    selection[m] = "u"
+                elif n == 18:
+                    selection[m] = "q"
+                elif n == 19:
+                    selection[m] = "v"
+                elif n == 24:
+                    selection[m] = "a"
+            random.shuffle(selection)
+
         # 4. one bishop has to be placed upon a bright square
-        piece_pos = random.choice(bright)
-        if para:
-            board[piece_pos] = "d"
         else:
-            board[piece_pos] = "b"
-        positions.remove(piece_pos)
-        if seirawan:
-            castl += FILES[piece_pos]
-
-        # 5. one bishop has to be placed upon a dark square
-        piece_pos = random.choice(dark)
-        if para:
-            board[piece_pos] = "d"
-        else:
-            board[piece_pos] = "b"
-        positions.remove(piece_pos)
-        if seirawan:
-            castl += FILES[piece_pos]
-
-        if capa:
-            # 6. one chancellor has to be placed upon a free square
-            piece_pos = random.choice(positions)
-            board[piece_pos] = "c"
-            positions.remove(piece_pos)
-        else:
-            piece_pos = random.choice(positions)
-            board[piece_pos] = "q"
+            piece_pos = random.choice(bright)
+            if para:
+                board[piece_pos] = "d"
+            else:
+                board[piece_pos] = "b"
             positions.remove(piece_pos)
             if seirawan:
                 castl += FILES[piece_pos]
 
-        # 7. one knight has to be placed upon a free square
-        piece_pos = random.choice(positions)
-        board[piece_pos] = "n"
-        positions.remove(piece_pos)
-        if seirawan:
-            castl += FILES[piece_pos]
+            # 5. one bishop has to be placed upon a dark square
+            piece_pos = random.choice(dark)
+            if para:
+                board[piece_pos] = "d"
+            else:
+                board[piece_pos] = "b"
+            positions.remove(piece_pos)
+            if seirawan:
+                castl += FILES[piece_pos]
 
-        # 8. one knight has to be placed upon a free square
-        piece_pos = random.choice(positions)
-        board[piece_pos] = "n"
-        positions.remove(piece_pos)
-        if seirawan:
-            castl += FILES[piece_pos]
+            if capa:
+                # 6. one chancellor has to be placed upon a free square
+                piece_pos = random.choice(positions)
+                board[piece_pos] = "c"
+                positions.remove(piece_pos)
+            else:
+                piece_pos = random.choice(positions)
+                board[piece_pos] = "q"
+                positions.remove(piece_pos)
+                if seirawan:
+                    castl += FILES[piece_pos]
 
-        # 9. set the king upon the center of three free squares left
-        if para:
-            positions = [0,4,7]
-        piece_pos = positions[1]
-        board[piece_pos] = "k"
+            # 7. one knight has to be placed upon a free square
+            piece_pos = random.choice(positions)
+            board[piece_pos] = "n"
+            positions.remove(piece_pos)
+            if seirawan:
+                castl += FILES[piece_pos]
 
-        # 10. set the rooks upon the both last free squares left
-        piece_pos = positions[0]
-        board[piece_pos] = "r"
-        castl += "q" if seirawan or para else FILES[piece_pos]
+            # 8. one knight has to be placed upon a free square
+            piece_pos = random.choice(positions)
+            board[piece_pos] = "n"
+            positions.remove(piece_pos)
+            if seirawan:
+                castl += FILES[piece_pos]
 
-        piece_pos = positions[2]
-        board[piece_pos] = "r"
-        castl += "k" if seirawan or para else FILES[piece_pos]
+            # 9. set the king upon the center of three free squares left
+            if para:
+                positions = [0,4,7]
+            piece_pos = positions[1]
+            board[piece_pos] = "k"
+
+            # 10. set the rooks upon the both last free squares left
+            piece_pos = positions[0]
+            board[piece_pos] = "r"
+            castl += "q" if seirawan or para else FILES[piece_pos]
+
+            piece_pos = positions[2]
+            board[piece_pos] = "r"
+            castl += "k" if seirawan or para else FILES[piece_pos]
+
+        # 11. overwrite board randomization in randomized
+        if rand:
+            board[0:4] = selection[0:4]
+            board[4] = "k"
+            board[5:8] = selection[4:7]
 
         fen = "".join(board)
         if capa:
@@ -350,18 +690,30 @@ class FairyBoard:
 
         checks = "3+3 " if variant == "3check" else ""
 
-        fen = (
-            fen
-            + body
-            + fen.upper()
-            + holdings
-            + " w "
-            + castl.upper()
-            + castl
-            + " - "
-            + checks
-            + "0 1"
-        )
+        if rand:
+            fen = (
+                body
+                + fen.upper()
+                + " w "
+                + "kq"
+                + " - "
+                + checks
+                + "0 1"
+            )
+
+        else:
+            fen = (
+                fen
+                + body
+                + fen.upper()
+                + holdings
+                + " w "
+                + castl.upper()
+                + castl
+                + " - "
+                + checks
+                + "0 1"
+            )
         return fen
 
 

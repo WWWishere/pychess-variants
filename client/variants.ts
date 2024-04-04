@@ -68,6 +68,7 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     paradigm: { pieceCSS: ["paradigm0", "disguised"] },
     sandbox: { pieceCSS: ["sandbox0", "sandbox1", "sandbox2", "sandbox3", "disguised"] },
     fairyland: { pieceCSS: ["fairy0", "disguised"] },
+    randomized: { pieceCSS: ["random0", "disguised"] }
 };
 
 export interface Variant {
@@ -915,6 +916,15 @@ export const VARIANTS: Record<string, Variant> = {
         ui: { boardMark: 'fairyland' },
     }),
 
+    randomized: variant({
+        name: "randomized", tooltip: "Try a random army vs the regular army",
+        startFen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/4K3 w kq - 0 1",
+        icon: "🎾",
+        boardFamily: "standard8x8", pieceFamily: "randomized",
+        pieceRow: ["k", "q", "r", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l"],
+	    rules: { enPassant: true },
+    }),
+
     // We support the functionality to import/store/analyze some variants
     // but don't want to add them to leaderboard page
     embassy: variant({
@@ -983,7 +993,7 @@ export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
     fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox" ] },
-    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland" ] },
+    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized" ] },
     other:    { variants: [ "ataxx" ] }
 };
 
