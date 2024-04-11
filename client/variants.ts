@@ -892,7 +892,7 @@ export const VARIANTS: Record<string, Variant> = {
     paradigm30: variant({
         name: "paradigm30", tooltip: "Paradigm Chess 30",
         startFen: "rndqkdnr/pppppppp/8/8/8/8/PPPPPPPP/RNDQKDNR w KQkq - 0 1",
-        icon: "🎾",
+        icon: "🐲",
         boardFamily: "standard8x8", pieceFamily: "paradigm",
         pieceRow: ["k", "q", "r", "n", "d", "p"],
 	    rules: { enPassant: true },
@@ -901,7 +901,7 @@ export const VARIANTS: Record<string, Variant> = {
     sandbox: variant({
         name: "sandbox", tooltip: "Just for fun",
         startFen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        icon: "🎾",
+        icon: "⛱",
         boardFamily: "standard8x8", pieceFamily: "sandbox",
         pieceRow: ["k", "q", "r", "b", "n", "p", "f", "w", "c", "m", "a", "d", "g", "u", "h", "o", "s", "l"],
 	    rules: { enPassant: true },
@@ -910,7 +910,7 @@ export const VARIANTS: Record<string, Variant> = {
     fairyland: variant({
         name: "fairyland", tooltip: _("Fairy tale chess"),
         startFen: "awuykgwa/ffffffff/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1",
-        icon: "}",
+        icon: "🧚",
         boardFamily: "standard8x8", pieceFamily: "fairyland",
         pieceRow: { white: ["k", "q", "r", "b", "n", "p"], black: ["k", "y", "g", "u", "w", "a", "f"] },
         ui: { boardMark: 'fairyland' },
@@ -919,9 +919,18 @@ export const VARIANTS: Record<string, Variant> = {
     randomized: variant({
         name: "randomized", tooltip: "Try a random army vs the regular army",
         startFen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/4K3 w kq - 0 1",
-        icon: "🎾",
+        icon: "🎲",
         boardFamily: "standard8x8", pieceFamily: "randomized",
         pieceRow: ["k", "q", "r", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l"],
+	    rules: { enPassant: true },
+    }),
+
+    rand2: variant({
+        name: "rand2", displayName: "random mirror", tooltip: "Both sides have the same randomized army.",
+        startFen: "4k3/8/8/8/8/8/8/4K3 w KQkq - 0 1",
+        icon: "🎲",
+        boardFamily: "standard8x8", pieceFamily: "randomized",
+        pieceRow: ["k", "q", "r", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l", "s", "x", "e", "t", "f", "z", "j"],
 	    rules: { enPassant: true },
     }),
 
@@ -992,7 +1001,7 @@ export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     sea:      { variants: [ "makruk", "makpong", "cambodian", "sittuyin", "asean" ] },
     shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
-    fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox" ] },
+    fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox", "rand2" ] },
     army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized" ] },
     other:    { variants: [ "ataxx" ] }
 };
