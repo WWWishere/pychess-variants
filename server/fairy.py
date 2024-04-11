@@ -89,7 +89,7 @@ class FairyBoard:
 
     @staticmethod
     def start_fen(variant, chess960=False, disabled_fen=""):
-        if chess960 or variant in ("paradigm30", "randomized"):
+        if chess960 or variant in ("paradigm30", "randomized", "rand2"):
             new_fen = FairyBoard.shuffle_start(variant)
             while new_fen == disabled_fen:
                 new_fen = FairyBoard.shuffle_start(variant)
@@ -239,6 +239,7 @@ class FairyBoard:
         seirawan = variant in ("seirawan", "shouse")
         para = variant == "paradigm30"
         rand = variant == "randomized"
+        rand2 = variant == "rand2"
 
         # https://www.chessvariants.com/contests/10/crc.html
         # we don't skip spositions that have unprotected pawns
@@ -606,6 +607,54 @@ class FairyBoard:
                 elif n == 24:
                     selection[m] = "a"
             random.shuffle(selection)
+        # For random mirror, the pieces are ranked and chosen by rank
+        elif rand2:
+            selection = [""] * 10
+            selection2 = [""] * 8
+            rk0 = ["p", "s", "e"]
+            rk1 = ["b", "b", "n", "n", "d", "d", "y", "y", "z", "z", "j", "j", "l"]
+            rk2 = ["r", "r", "w", "w", "t", "t", "g", "i", "h", "o"]
+            rk3 = ["q", "c", "m", "a", "u", "v", "x", "f"]
+            rk1dist = ["1", "2", "2", "3", "3", "3", "3"]
+            rk2dist = ["1", "2"]
+            selection[0] = random.choice(rk0)
+            selection[1] = random.choice(rk1)
+            rk1.remove(selection[1])
+            selection[2] = random.choice(rk2)
+            rk2.remove(selection[2])
+            selection[3] = random.choice(rk3)
+            selection[4] = random.choice(rk1dist)
+            selection[5] = random.choice(rk2dist)
+            selection[6] = random.choice(rk1)
+            rk1.remove(selection[6])
+            selection[7] = random.choice(rk1)
+            rk1.remove(selection[7])
+            selection[8] = random.choice(rk1)
+            selection[9] = random.choice(rk2)
+
+            # Fill in the piece composition
+            selection2[0] = selection[0]
+            selection2[1] = selection[1]
+            if selection[4] in ("2", "3"):
+                selection2[2] = selection[1]
+                selection2[3] = selection[6]
+                if selection[4] == "3":
+                    selection2[4] = selection[6]
+                else:
+                    selection2[4] = selection[7]
+            else:
+                selection2[2] = selection[6]
+                selection2[3] = selection[7]
+                selection2[4] = selection[8]
+            selection2[5] = selection[2]
+            if selection[5] == "2":
+                selection2[6] = selection[2]
+            else:
+                selection2[6] = selection[9]
+            selection2[7] = selection[3]
+
+            # similar piece placement to 960
+
 
         # 4. one bishop has to be placed upon a bright square
         else:
