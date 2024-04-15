@@ -921,7 +921,7 @@ export const VARIANTS: Record<string, Variant> = {
         startFen: "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/4K3 w kq - 0 1",
         icon: "🎲",
         boardFamily: "standard8x8", pieceFamily: "randomized",
-        pieceRow: ["k", "q", "r", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l"],
+        pieceRow: ["k", "q", "r", "b", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l"],
 	    rules: { enPassant: true },
     }),
 
