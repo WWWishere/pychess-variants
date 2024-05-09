@@ -89,7 +89,7 @@ class FairyBoard:
 
     @staticmethod
     def start_fen(variant, chess960=False, disabled_fen=""):
-        if chess960 or variant in ("paradigm30", "randomized", "rand2"):
+        if chess960 or variant in ("paradigm30", "randomized", "rand2", "ordarandom"):
             new_fen = FairyBoard.shuffle_start(variant)
             while new_fen == disabled_fen:
                 new_fen = FairyBoard.shuffle_start(variant)
@@ -240,6 +240,7 @@ class FairyBoard:
         para = variant == "paradigm30"
         rand = variant == "randomized"
         rand2 = variant == "rand2"
+        rand_o = variant == "ordarandom"
 
         # https://www.chessvariants.com/contests/10/crc.html
         # we don't skip spositions that have unprotected pawns
@@ -263,7 +264,7 @@ class FairyBoard:
             board[piece_pos] = "q" if piece == "a" else "a"
             positions.remove(piece_pos)
             dark.remove(piece_pos)
-        elif rand:
+        elif rand or rand_o:
             board = [""] * 8
             positions = [0, 1, 2, 3, 5, 6, 7]
             bright = [1, 3, 5, 7]
@@ -654,7 +655,124 @@ class FairyBoard:
             selection2[7] = selection[3]
 
             # similar piece placement to 960
-
+        elif rand_o:
+            score = 66
+            selection_num = [0] * 7
+            values = [6, 7, 8, 9, 9, 10, 10, 12, 12, 14, 14, 15, 15]
+            values_l = [10, 12, 14, 15]
+            values_m = [8, 8, 9, 10, 12, 12, 14]
+            values_s = [6, 8, 8, 9, 10]
+            i = random.choice(values)
+            selection_num[0] = i
+            score -= i
+            # max = 60, min = 51
+            if score >= 57:
+                j = random.choice(values_l)
+            else:
+                j = random.choice(values)
+            selection_num[1] = j
+            score -= j
+            # max = 50, min = 36
+            if score >= 47:
+                k = random.choice(values_l)
+            elif score <= 39:
+                k = random.choice(values_s)
+            else:
+                k = random.choice(values_m)
+            selection_num[2] = k
+            score -= k
+            # max = 40, min = 26
+            if score >= 35:
+                l = random.choice(values_l)
+            elif score <= 31:
+                l = random.choice(values_s)
+            else:
+                l = random.choice(values_m)
+            selection_num[3] = l
+            score -= l
+            # max = 30, min = 16
+            if score <= 16:
+                selection_num[4] = 7
+                selection_num[5] = 6
+                selection_num[6] = 3
+            elif score <= 17:
+                selection_num[4] = 8
+                selection_num[5] = 6
+                selection_num[6] = 3
+            elif score <= 18:
+                selection_num[4] = 9
+                selection_num[5] = 6
+                selection_num[6] = 3
+            elif score <= 19:
+                selection_num[4] = 7
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 20:
+                selection_num[4] = 8
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 21:
+                selection_num[4] = 9
+                selection_num[5] = 6
+                selection_num[6] = 6
+            elif score <= 22:
+                selection_num[4] = 9
+                selection_num[5] = 7
+                selection_num[6] = 6
+            elif score <= 23:
+                selection_num[4] = 10
+                selection_num[5] = 7
+                selection_num[6] = 6
+            elif score <= 24:
+                selection_num[4] = 9
+                selection_num[5] = 9
+                selection_num[6] = 6
+            elif score <= 25:
+                selection_num[4] = 10
+                selection_num[5] = 9
+                selection_num[6] = 6
+            elif score <= 26:
+                selection_num[4] = 12
+                selection_num[5] = 8
+                selection_num[6] = 6
+            elif score <= 27:
+                selection_num[4] = 14
+                selection_num[5] = 7
+                selection_num[6] = 6
+            elif score <= 28:
+                selection_num[4] = 10
+                selection_num[5] = 9
+                selection_num[6] = 9
+            elif score <= 29:
+                selection_num[4] = 12
+                selection_num[5] = 10
+                selection_num[6] = 7
+            elif score <= 30:
+                selection_num[4] = 14
+                selection_num[5] = 10
+                selection_num[6] = 6
+            for m in range(0, 7):
+                n = selection_num[m]
+                if n == 3:
+                    selection[m] = "y"
+                elif n == 6:
+                    selection[m] = random.choice(("t", "g", "n"))
+                elif n == 7:
+                    selection[m] = "v"
+                elif n == 8:
+                    selection[m] = random.choice(("a", "l", "d", "s"))
+                elif n == 9:
+                    selection[m] = random.choice(("w", "x"))
+                elif n == 10:
+                    selection[m] = random.choice(("f", "z"))
+                elif n == 12:
+                    selection[m] = "h"
+                elif n == 14:
+                    selection[m] = "c"
+                else:
+                    selection[m] = random.choice(("i", "o"))
+            print(selection_num)
+            random.shuffle(selection)
 
         # 4. one bishop has to be placed upon a bright square
         else:
@@ -719,7 +837,7 @@ class FairyBoard:
             castl += "k" if seirawan or para else FILES[piece_pos]
 
         # 11. overwrite board randomization in randomized
-        if rand:
+        if rand or rand_o:
             board[0:4] = selection[0:4]
             board[4] = "k"
             board[5:8] = selection[4:7]
@@ -729,6 +847,8 @@ class FairyBoard:
             body = "/pppppppppp/10/10/10/10/PPPPPPPPPP/"
         elif rand:
             body = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/"
+        elif rand_o:
+            body = "lhafkahl/8/pppppppp/8/8/PPPPPPPP/8/"
         else:
             body = "/pppppppp/8/8/8/8/PPPPPPPP/"
 
@@ -747,6 +867,16 @@ class FairyBoard:
                 + fen.upper()
                 + " w "
                 + "kq"
+                + " - "
+                + checks
+                + "0 1"
+            )
+        elif rand_o:
+            fen = (
+                body
+                + fen.upper()
+                + " w "
+                + "-"
                 + " - "
                 + checks
                 + "0 1"

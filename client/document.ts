@@ -110,6 +110,7 @@ export function changePieceCSS(assetUrl: string, family: string, cssFile: string
         case "sandbox": cssLinkIndex += 26; break;
         case "fairyland": cssLinkIndex += 27; break;
         case "randomized": cssLinkIndex += 28; break;
+        case "ordarandom": cssLinkIndex += 29; break;
         default: throw "Unknown piece family " + family;
     }
     let newUrl = `${assetUrl}/piece-css/${family}/${cssFile}.css`;

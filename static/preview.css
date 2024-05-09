@@ -532,3 +532,11 @@ label.piece.piece0.randomized {
 label.piece.piece1.randomized {
     background-image: url('images/pieces/disguised/w.svg');
 }
+
+
+label.piece.piece0.ordarandom {
+    background-image: url('images/pieces/orda/merida/wH.svg');
+}
+label.piece.piece1.ordarandom {
+    background-image: url('images/pieces/disguised/w.svg');
+}

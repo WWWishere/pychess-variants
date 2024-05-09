@@ -68,7 +68,8 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     paradigm: { pieceCSS: ["paradigm0", "disguised"] },
     sandbox: { pieceCSS: ["sandbox0", "sandbox1", "sandbox2", "sandbox3", "disguised"] },
     fairyland: { pieceCSS: ["fairy0", "disguised"] },
-    randomized: { pieceCSS: ["random0", "disguised"] }
+    randomized: { pieceCSS: ["random0", "disguised"] },
+    ordarandom: { pieceCSS: ["ordarandom0", "disguised"] }
 };
 
 export interface Variant {
@@ -934,6 +935,17 @@ export const VARIANTS: Record<string, Variant> = {
 	    rules: { enPassant: true },
     }),
 
+    ordarandom: variant({
+        name: "ordarandom", displayName: "orda random", tooltip: "Randomized horde pieces fight against the regular horde.",
+        startFen: "lhafkahl/8/pppppppp/8/8/PPPPPPPP/8/4K3 w - - 0 1",
+        icon: "🎲",
+        boardFamily: "standard8x8", pieceFamily: "ordarandom",
+        colors: { first: "White", second: "Gold" },
+        pieceRow: { white: ["k", "f", "l", "a", "h", "p", "y", "m", "t", "c", "g", "o", "d", "s", "v", "w", "x", "i", "z", "n"], black: ["k", "y", "l", "a", "h", "p", "m"] },
+        promotion: { type: "regular", order: ["h", "m"] },
+        ui: { boardMark: 'campmate' },
+    }),
+
     // We support the functionality to import/store/analyze some variants
     // but don't want to add them to leaderboard page
     embassy: variant({
@@ -993,7 +1005,9 @@ export const noPuzzleVariants = [
     "shinobiplus",
     "paradigm30",
     "sandbox",
-    "fairyland"
+    "fairyland",
+    "randomized",
+    "ordarandom"
 ]
 
 export const variantGroups: { [ key: string ]: { variants: string[] } } = {
@@ -1002,7 +1016,7 @@ export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
     fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox"] },
-    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized" ] },
+    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized", "ordarandom" ] },
     other:    { variants: [ "ataxx" ] }
 };
 

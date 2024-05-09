@@ -1,0 +1,6 @@
+.ordarandom .cg-wrap piece.white {
+    background-image: url('../../images/pieces/disguised/w.svg');
+}
+.ordarandom .cg-wrap piece.black {
+    background-image: url('../../images/pieces/disguised/g.svg');
+}

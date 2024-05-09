@@ -161,6 +161,7 @@ VARIANTS = (
     "sandbox",
     "fairyland",
     "randomized",
+    "ordarandom",
 )
 
 VARIANT_ICONS = {
@@ -219,6 +220,7 @@ VARIANT_ICONS = {
     "sandbox": "⛱",
     "randomized": "🎲",
     "fairyland": "🧚",
+    "ordarandom": "🎲",
     "kingofthehill": "🏴",
     "kingofthehill960": "🏁",
     "3check": "☰",
@@ -285,6 +287,7 @@ CATEGORIES = {
         "spartan",
         "fairyland",
         "randomized",
+        "ordarandom",
     ),
     "makruk": ("makruk", "makpong", "cambodian", "sittuyin", "asean"),
     "shogi": (
@@ -429,6 +432,7 @@ TRANSLATED_VARIANT_NAMES = {
     "sandbox": _("Sandbox"),
     "fairyland": _("Fairyland"),
     "randomized": _("Randomized"),
+    "ordarandom": _("Orda Random"),
 }
 
 del _

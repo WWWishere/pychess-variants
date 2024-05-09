@@ -329,4 +329,21 @@ customPiece9 = f:WFNN
 customPiece11 = z:Z
 customPiece12 = j:FA
 castlingRookPieces = rgihowt
-startFen = 4k3/8/8/8/8/8/8/4K3 w KQkq - 0 1`
+startFen = 4k3/8/8/8/8/8/8/4K3 w KQkq - 0 1
+
+[ordarandom:ordamirror]
+silver = y
+amazon = m
+customPiece2 = t:mNcK
+customPiece3 = c:mNcQ
+customPiece4 = g:mKcN
+customPiece5 = o:KNA
+customPiece6 = d:mKcB
+customPiece7 = s:mKcR
+customPiece8 = v:KsD
+customPiece9 = w:mBcR
+customPiece10 = x:mRcB
+customPiece11 = i:mQcKcN
+customPiece12 = z:mRcKcD
+startFen = lhafkahl/8/pppppppp/8/8/PPPPPPPP/8/4K3 w - - 0 1
+promotionPieceTypes = hm`
