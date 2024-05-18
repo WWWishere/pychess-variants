@@ -533,10 +533,26 @@ label.piece.piece1.randomized {
     background-image: url('images/pieces/disguised/w.svg');
 }
 
-
 label.piece.piece0.ordarandom {
     background-image: url('images/pieces/orda/merida/wH.svg');
 }
 label.piece.piece1.ordarandom {
     background-image: url('images/pieces/disguised/w.svg');
+}
+
+label.piece.piece0.rand2 {
+    background-image: url('images/pieces/mansindam/intl/wn.svg');
+}
+label.piece.piece1.rand2 {
+    background-image: url('images/pieces/disguised/w.svg');
+}
+
+label.piece.piece0.shinogi {
+    background-image: url('images/pieces/shinogi/wK.svg');
+}
+label.piece.piece1.shinogi {
+    background-image: url('images/pieces/shinogi-cz/wK.svg');
+}
+label.piece.piece2.shinogi {
+    background-image: url('images/pieces/disguised/p.svg');
 }

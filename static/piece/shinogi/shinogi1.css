@@ -1,0 +1,133 @@
+.shinogi .cg-wrap piece.p-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wP.svg');
+}
+.shinogi .cg-wrap piece.pp-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+P.svg');
+}
+.shinogi .cg-wrap piece.b-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wB.svg');
+}
+.shinogi .cg-wrap piece.pb-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+B.svg');
+}
+.shinogi .cg-wrap piece.n-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wN.svg');
+}
+.shinogi .cg-wrap piece.pn-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+N.svg');
+}
+.shinogi .cg-wrap piece.r-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wR.svg');
+}
+.shinogi .cg-wrap piece.pr-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+R.svg');
+}
+.shinogi .cg-wrap piece.l-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wL.svg');
+}
+.shinogi .cg-wrap piece.pl-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+L.svg');
+}
+.shinogi .cg-wrap piece.s-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wS.svg');
+}
+.shinogi .cg-wrap piece.ps-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+S.svg');
+}
+.shinogi .cg-wrap piece.g-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wG.svg');
+}
+.shinogi .cg-wrap piece.k-piece.white.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wK.svg');
+}
+.shinogi .cg-wrap piece.k-piece.black.ally {
+    background-image: url('../../images/pieces/shinogi-cz/bK_f.svg');
+}
+.shinogi .cg-wrap piece.p-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bP.svg');
+}
+.shinogi .cg-wrap piece.pp-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+P.svg');
+}
+.shinogi .cg-wrap piece.b-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bB.svg');
+}
+.shinogi .cg-wrap piece.pb-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+B.svg');
+}
+.shinogi .cg-wrap piece.n-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bN.svg');
+}
+.shinogi .cg-wrap piece.pn-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+N.svg');
+}
+.shinogi .cg-wrap piece.r-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bR.svg');
+}
+.shinogi .cg-wrap piece.pr-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+R.svg');
+}
+.shinogi .cg-wrap piece.l-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bL.svg');
+}
+.shinogi .cg-wrap piece.pl-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+L.svg');
+}
+.shinogi .cg-wrap piece.s-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bS.svg');
+}
+.shinogi .cg-wrap piece.ps-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+S.svg');
+}
+.shinogi .cg-wrap piece.g-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bG.svg');
+}
+.shinogi .cg-wrap piece.k-piece.white.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/wK_f.svg');
+}
+.shinogi .cg-wrap piece.k-piece.black.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bK.svg');
+}
+
+.shinogi .cg-wrap piece.c-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wC.svg');
+}
+.shinogi .cg-wrap piece.c-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bC.svg');
+}
+.shinogi .cg-wrap piece.m-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wM.svg');
+}
+.shinogi .cg-wrap piece.pm-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+M.svg');
+}
+.shinogi .cg-wrap piece.m-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bM.svg');
+}
+.shinogi .cg-wrap piece.pm-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+M.svg');
+}
+.shinogi .cg-wrap piece.f-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wF.svg');
+}
+.shinogi .cg-wrap piece.pf-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+F.svg');
+}
+.shinogi .cg-wrap piece.f-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bF.svg');
+}
+.shinogi .cg-wrap piece.pf-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+F.svg');
+}
+.shinogi .cg-wrap piece.o-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/wO.svg');
+}
+.shinogi .cg-wrap piece.po-piece.ally {
+    background-image: url('../../images/pieces/shinogi-cz/w+O.svg');
+}
+.shinogi .cg-wrap piece.o-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/bO.svg');
+}
+.shinogi .cg-wrap piece.po-piece.enemy {
+    background-image: url('../../images/pieces/shinogi-cz/b+O.svg');
+}

@@ -60,6 +60,8 @@ V2C = {
     "fairyland": "F",
     "randomized": "Q",
     "ordarandom": "V",
+    "rand2": "W",
+    "shinogi": "Z",
 }
 C2V = {v: k for k, v in V2C.items()}
 

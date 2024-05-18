@@ -162,6 +162,8 @@ VARIANTS = (
     "fairyland",
     "randomized",
     "ordarandom",
+    "rand2",
+    "shinogi",
 )
 
 VARIANT_ICONS = {
@@ -221,6 +223,8 @@ VARIANT_ICONS = {
     "randomized": "🎲",
     "fairyland": "🧚",
     "ordarandom": "🎲",
+    "rand2": "🎲",
+    "shinogi": "K",
     "kingofthehill": "🏴",
     "kingofthehill960": "🏁",
     "3check": "☰",
@@ -288,6 +292,7 @@ CATEGORIES = {
         "fairyland",
         "randomized",
         "ordarandom",
+        "rand2",
     ),
     "makruk": ("makruk", "makpong", "cambodian", "sittuyin", "asean"),
     "shogi": (
@@ -297,6 +302,7 @@ CATEGORIES = {
         "dobutsu",
         "gorogoroplus",
         "torishogi",
+        "shinogi",
     ),
     "xiangqi": ("xiangqi", "manchu", "janggi", "minixiangqi"),
     "other": ("ataxx"),
@@ -433,6 +439,8 @@ TRANSLATED_VARIANT_NAMES = {
     "fairyland": _("Fairyland"),
     "randomized": _("Randomized"),
     "ordarandom": _("Orda Random"),
+    "rand2": _("Random Mirror"),
+    "shinogi": _("Shinogi"),
 }
 
 del _

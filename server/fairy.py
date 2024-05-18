@@ -270,6 +270,44 @@ class FairyBoard:
             bright = [1, 3, 5, 7]
             dark = [0, 2, 6]
             selection = [""] * 7
+            # For random mirror, the pieces are ranked and chosen by rank
+        elif rand2:
+            board = [""] * 8
+            positions = [0, 1, 2, 3, 4, 5, 6, 7]
+            bright = [1, 3, 5, 7]
+            dark = [0, 2, 4, 6]
+            selection = [""] * 8
+            dist = [0] * 2
+            rk0 = ["p", "s", "e", "t"]
+            rk1 = ["n", "g", "w", "o", "y"]
+            rk1c = ["b", "v", "f", "l", "c"]
+            rk2 = ["r", "d", "h", "i", "u", "x"]
+            rk3 = ["q", "a", "c", "m", "z"]
+            rk1dist = [1, 1, 2, 3, 3, 4]
+            rk2dist = [1, 1, 2]
+            dist[0] = random.choice(rk1dist)
+            dist[1] = random.choice(rk2dist)
+            selection[0] = random.choice(rk0)
+            selection[1] = random.choice(rk1c)
+            rk1c.remove(selection[1])
+            if dist[0] in (2, 3):
+                selection[2] = selection[1]
+            else:
+                selection[2] = random.choice(rk1c)
+            selection[3] = random.choice(rk1)
+            rk1.remove(selection[3])
+            if dist[0] in (3, 4):
+                selection[4] = selection[3]
+            else:
+                selection[4] = random.choice(rk1)
+            selection[5] = random.choice(rk2)
+            rk2.remove(selection[5])
+            if dist[1] == 2:
+                selection[6] = selection[5]
+            else:
+                selection[6] = random.choice(rk2)
+            selection[7] = random.choice(rk3)
+            # similar piece placement to 960
         else:
             board = [""] * 8
             positions = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -608,53 +646,6 @@ class FairyBoard:
                 elif n == 24:
                     selection[m] = "a"
             random.shuffle(selection)
-        # For random mirror, the pieces are ranked and chosen by rank
-        elif rand2:
-            selection = [""] * 10
-            selection2 = [""] * 8
-            rk0 = ["p", "s", "e"]
-            rk1 = ["b", "b", "n", "n", "d", "d", "y", "y", "z", "z", "j", "j", "l"]
-            rk2 = ["r", "r", "w", "w", "t", "t", "g", "i", "h", "o"]
-            rk3 = ["q", "c", "m", "a", "u", "v", "x", "f"]
-            rk1dist = ["1", "2", "2", "3", "3", "3", "3"]
-            rk2dist = ["1", "2"]
-            selection[0] = random.choice(rk0)
-            selection[1] = random.choice(rk1)
-            rk1.remove(selection[1])
-            selection[2] = random.choice(rk2)
-            rk2.remove(selection[2])
-            selection[3] = random.choice(rk3)
-            selection[4] = random.choice(rk1dist)
-            selection[5] = random.choice(rk2dist)
-            selection[6] = random.choice(rk1)
-            rk1.remove(selection[6])
-            selection[7] = random.choice(rk1)
-            rk1.remove(selection[7])
-            selection[8] = random.choice(rk1)
-            selection[9] = random.choice(rk2)
-
-            # Fill in the piece composition
-            selection2[0] = selection[0]
-            selection2[1] = selection[1]
-            if selection[4] in ("2", "3"):
-                selection2[2] = selection[1]
-                selection2[3] = selection[6]
-                if selection[4] == "3":
-                    selection2[4] = selection[6]
-                else:
-                    selection2[4] = selection[7]
-            else:
-                selection2[2] = selection[6]
-                selection2[3] = selection[7]
-                selection2[4] = selection[8]
-            selection2[5] = selection[2]
-            if selection[5] == "2":
-                selection2[6] = selection[2]
-            else:
-                selection2[6] = selection[9]
-            selection2[7] = selection[3]
-
-            # similar piece placement to 960
         elif rand_o:
             score = 66
             selection_num = [0] * 7
@@ -771,7 +762,6 @@ class FairyBoard:
                     selection[m] = "c"
                 else:
                     selection[m] = random.choice(("i", "o"))
-            print(selection_num)
             random.shuffle(selection)
 
         # 4. one bishop has to be placed upon a bright square
@@ -779,6 +769,8 @@ class FairyBoard:
             piece_pos = random.choice(bright)
             if para:
                 board[piece_pos] = "d"
+            elif rand2:
+                board[piece_pos] = selection[1]
             else:
                 board[piece_pos] = "b"
             positions.remove(piece_pos)
@@ -789,6 +781,8 @@ class FairyBoard:
             piece_pos = random.choice(dark)
             if para:
                 board[piece_pos] = "d"
+            elif rand2:
+                board[piece_pos] = selection[2]
             else:
                 board[piece_pos] = "b"
             positions.remove(piece_pos)
@@ -800,6 +794,10 @@ class FairyBoard:
                 piece_pos = random.choice(positions)
                 board[piece_pos] = "c"
                 positions.remove(piece_pos)
+            elif rand2:
+                piece_pos = random.choice(positions)
+                board[piece_pos] = selection[7]
+                positions.remove(piece_pos)
             else:
                 piece_pos = random.choice(positions)
                 board[piece_pos] = "q"
@@ -809,14 +807,20 @@ class FairyBoard:
 
             # 7. one knight has to be placed upon a free square
             piece_pos = random.choice(positions)
-            board[piece_pos] = "n"
+            if rand2:
+                board[piece_pos] = selection[3]
+            else:
+                board[piece_pos] = "n"
             positions.remove(piece_pos)
             if seirawan:
                 castl += FILES[piece_pos]
 
             # 8. one knight has to be placed upon a free square
             piece_pos = random.choice(positions)
-            board[piece_pos] = "n"
+            if rand2:
+                board[piece_pos] = selection[4]
+            else:
+                board[piece_pos] = "n"
             positions.remove(piece_pos)
             if seirawan:
                 castl += FILES[piece_pos]
@@ -829,11 +833,17 @@ class FairyBoard:
 
             # 10. set the rooks upon the both last free squares left
             piece_pos = positions[0]
-            board[piece_pos] = "r"
+            if rand2:
+                board[piece_pos] = selection[5]
+            else:
+                board[piece_pos] = "r"
             castl += "q" if seirawan or para else FILES[piece_pos]
 
             piece_pos = positions[2]
-            board[piece_pos] = "r"
+            if rand2:
+                board[piece_pos] = selection[6]
+            else:
+                board[piece_pos] = "r"
             castl += "k" if seirawan or para else FILES[piece_pos]
 
         # 11. overwrite board randomization in randomized
@@ -849,6 +859,10 @@ class FairyBoard:
             body = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/"
         elif rand_o:
             body = "lhafkahl/8/pppppppp/8/8/PPPPPPPP/8/"
+        elif rand2:
+            pawns = selection[0] * 8
+            pawnsUp = pawns.upper()
+            body = "/" + pawns + "/8/8/8/8/" + pawnsUp + "/"
         else:
             body = "/pppppppp/8/8/8/8/PPPPPPPP/"
 

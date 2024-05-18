@@ -86,9 +86,7 @@ export function validFen(variant: Variant, fen: string): boolean {
     const variantName = variant.name;
     const startfen = variant.startFen;
     const start = startfen.split(' ');
-    console.log(start);
     const parts = fen.split(' ');
-    console.log(parts);
     // Need starting color
     if (parts.length < 2) return false;
 
@@ -102,6 +100,7 @@ export function validFen(variant: Variant, fen: string): boolean {
         ((variantName === "duck" || variantName === "ataxx") ? "*" : "") +
         ((variantName === "randomized") ? "NBRQCcMmAaGgDdIiHhLlOoWwYyUuVv" : "") +
         ((variantName === "ordarandom") ? "MmYNALHFTCGODSVWXIZ" : "") +
+        ((variantName === "rand2") ? "AaBbCcDdEeFfGgHhIiJjLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz" : "") +
         "~+0123456789[]-";
     const alien = (element: string) => !good.includes(element);
     if (placement.split('').some(alien)) return false;
@@ -137,7 +136,12 @@ export function validFen(variant: Variant, fen: string): boolean {
 
     // Castling rights (piece virginity)
     good = (variantName === 'seirawan' || variantName === 'shouse') ? 'KQABCDEFGHkqabcdefgh-' : start[2] + "-";
+    if (variantName === 'rand2') {
+        good += "ABCDEFGHabcdefgh"
+    }
     const wrong = (element: string) => !good.includes(element);
+    console.log(good)
+    console.log(wrong)
     const rookStart: { [right: string]: cg.Pos } = {
         K: (variantName === 'shako') ? [width - 2, 1] : [width - 1, 0],
         Q: (variantName === 'shako') ? [1, 1] : [0, 0],

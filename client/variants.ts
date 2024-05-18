@@ -69,7 +69,9 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     sandbox: { pieceCSS: ["sandbox0", "sandbox1", "sandbox2", "sandbox3", "disguised"] },
     fairyland: { pieceCSS: ["fairy0", "disguised"] },
     randomized: { pieceCSS: ["random0", "disguised"] },
-    ordarandom: { pieceCSS: ["ordarandom0", "disguised"] }
+    ordarandom: { pieceCSS: ["ordarandom0", "disguised"] },
+    rand2: { pieceCSS: ["rand0", "disguised"] },
+    shinogi: { pieceCSS: ["shinogi0", "shinogi1", "disguised"] },
 };
 
 export interface Variant {
@@ -930,8 +932,8 @@ export const VARIANTS: Record<string, Variant> = {
         name: "rand2", displayName: "random mirror", tooltip: "Both sides have the same randomized army.",
         startFen: "4k3/8/8/8/8/8/8/4K3 w KQkq - 0 1",
         icon: "🎲",
-        boardFamily: "standard8x8", pieceFamily: "randomized",
-        pieceRow: ["k", "q", "r", "n", "p", "c", "m", "a", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l", "s", "x", "e", "t", "f", "z", "j"],
+        boardFamily: "standard8x8", pieceFamily: "rand2",
+        pieceRow: ["k", "q", "r", "b", "n", "p", "a", "c", "z", "g", "d", "i", "h", "o", "w", "y", "u", "v", "l", "s", "x", "e", "t", "f", "m", "j"],
 	    rules: { enPassant: true },
     }),
 
@@ -944,6 +946,18 @@ export const VARIANTS: Record<string, Variant> = {
         pieceRow: { white: ["k", "f", "l", "a", "h", "p", "y", "m", "t", "c", "g", "o", "d", "s", "v", "w", "x", "i", "z", "n"], black: ["k", "y", "l", "a", "h", "p", "m"] },
         promotion: { type: "regular", order: ["h", "m"] },
         ui: { boardMark: 'campmate' },
+    }),
+
+    shinogi: variant({
+        name: "shinogi", tooltip: "Half shogi, half shinobi stuff.",
+        startFen: "bcmgkgsnl/1r5f1/ooooppppp/9/9/9/PPPPPOOOO/1F5R1/LNSGKGMCB[-] w - - 0 1",
+        icon: "K",
+        boardFamily: "shogi9x9", pieceFamily: "shinogi",
+        pieceRow: ["k", "c", "g", "r", "b", "s", "n", "l", "p", "f", "m", "o"],
+        pocket: { roles: ["p", "o", "l", "n", "m", "s", "g", "c", "b", "r", "f"], captureToHand: true },
+        promotion: { type: "shogi", roles: ["p", "o", "l", "n", "m", "s", "b", "r", "f"] },
+        rules: { defaultTimeControl: "byoyomi", noDrawOffer: true },
+        ui: { pieceSound: "shogi" },
     }),
 
     // We support the functionality to import/store/analyze some variants
@@ -1007,16 +1021,17 @@ export const noPuzzleVariants = [
     "sandbox",
     "fairyland",
     "randomized",
-    "ordarandom"
+    "ordarandom",
+    "rand2"
 ]
 
 export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     standard: { variants: [ "chess", "crazyhouse", "atomic", "kingofthehill", "3check", "placement", "duck" ] },
     sea:      { variants: [ "makruk", "makpong", "cambodian", "sittuyin", "asean" ] },
-    shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi" ] },
+    shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi", "shinogi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
     fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox"] },
-    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized", "ordarandom" ] },
+    army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized", "ordarandom", "rand2" ] },
     other:    { variants: [ "ataxx" ] }
 };
 

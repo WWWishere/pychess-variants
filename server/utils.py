@@ -865,6 +865,7 @@ def sanitize_fen(variant, initial_fen, chess960):
                 or ("k" in init[2] and backRankB[rookPosK] != "r")
                 or ("Q" in init[2] and backRankW[rookPosQ] != "R")
                 or ("K" in init[2] and backRankW[rookPosK] != "R")
+                and variant != "rand2"
             ):
                 invalid4 = True
 

@@ -1,0 +1,158 @@
+.rand2 .cg-wrap piece.p-piece.white {
+    background-image: url('../../images/pieces/alpha/wP.svg');
+}
+.rand2 .cg-wrap piece.n-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wn.svg');
+}
+.rand2 .cg-wrap piece.b-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wb.svg');
+}
+.rand2 .cg-wrap piece.r-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wr.svg');
+}
+.rand2 .cg-wrap piece.q-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wq.svg');
+}
+.rand2 .cg-wrap piece.k-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wk.svg');
+}
+.rand2 .cg-wrap piece.p-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/randomized/bp.svg');
+}
+.rand2 .cg-wrap piece.n-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bn.svg');
+}
+.rand2 .cg-wrap piece.b-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bb.svg');
+}
+.rand2 .cg-wrap piece.r-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/br.svg');
+}
+.rand2 .cg-wrap piece.q-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bq.svg');
+}
+.rand2 .cg-wrap piece.k-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bk.svg');
+}
+
+
+.rand2 .cg-wrap piece.a-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wc.svg');
+}
+.rand2 .cg-wrap piece.a-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bc.svg');
+}
+.rand2 .cg-wrap piece.c-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wm.svg');
+}
+.rand2 .cg-wrap piece.c-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bm.svg');
+}
+.rand2 .cg-wrap piece.z-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wa.svg');
+}
+.rand2 .cg-wrap piece.z-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/ba.svg');
+}
+.rand2 .cg-wrap piece.e-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wBP.svg');
+}
+.rand2 .cg-wrap piece.e-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bBP.svg');
+}
+.rand2 .cg-wrap piece.s-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/wp.svg');
+}
+.rand2 .cg-wrap piece.s-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/bp.svg');
+}
+.rand2 .cg-wrap piece.t-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wSG.svg');
+}
+.rand2 .cg-wrap piece.t-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bSG.svg');
+}
+.rand2 .cg-wrap piece.d-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wFR.svg');
+}
+.rand2 .cg-wrap piece.d-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bFR.svg');
+}
+.rand2 .cg-wrap piece.h-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wWB.svg');
+}
+.rand2 .cg-wrap piece.h-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bWB.svg');
+}
+.rand2 .cg-wrap piece.m-piece.white {
+    background-image: url('../../images/pieces/alpha/sandbox/wL.svg');
+}
+.rand2 .cg-wrap piece.m-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bMA.svg');
+}
+.rand2 .cg-wrap piece.g-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/w+p.svg');
+}
+.rand2 .cg-wrap piece.g-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/b+p.svg');
+}
+.rand2 .cg-wrap piece.i-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wPR.svg');
+}
+.rand2 .cg-wrap piece.i-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bPR.svg');
+}
+.rand2 .cg-wrap piece.f-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wFA.svg');
+}
+.rand2 .cg-wrap piece.f-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bFA.svg');
+}
+.rand2 .cg-wrap piece.w-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wWD.svg');
+}
+.rand2 .cg-wrap piece.w-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bWD.svg');
+}
+.rand2 .cg-wrap piece.o-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wCN.svg');
+}
+.rand2 .cg-wrap piece.o-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bCN.svg');
+}
+.rand2 .cg-wrap piece.v-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wV.svg');
+}
+.rand2 .cg-wrap piece.v-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bV.svg');
+}
+.rand2 .cg-wrap piece.l-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wAD.svg');
+}
+.rand2 .cg-wrap piece.l-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bAD.svg');
+}
+.rand2 .cg-wrap piece.j-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wCA.svg');
+}
+.rand2 .cg-wrap piece.j-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bCA.svg');
+}
+.rand2 .cg-wrap piece.u-piece.white {
+    background-image: url('../../images/pieces/mansindam/intl/w+n.svg');
+}
+.rand2 .cg-wrap piece.u-piece.black {
+    background-image: url('../../images/pieces/mansindam/intl/b+n.svg');
+}
+.rand2 .cg-wrap piece.x-piece.white {
+    background-image: url('../../images/pieces/alpha/sandbox/wNN.svg');
+}
+.rand2 .cg-wrap piece.x-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bNN.svg');
+}
+.rand2 .cg-wrap piece.y-piece.white {
+    background-image: url('../../images/pieces/alpha/rand2/wY.svg');
+}
+.rand2 .cg-wrap piece.y-piece.black {
+    background-image: url('../../images/pieces/alpha/rand2/bY.svg');
+}
