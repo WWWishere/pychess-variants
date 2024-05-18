@@ -280,7 +280,7 @@ class FairyBoard:
             dist = [0] * 2
             rk0 = ["p", "s", "e", "t"]
             rk1 = ["n", "g", "w", "o", "y"]
-            rk1c = ["b", "v", "f", "l", "c"]
+            rk1c = ["b", "v", "f", "l", "j"]
             rk2 = ["r", "d", "h", "i", "u", "x"]
             rk3 = ["q", "a", "c", "m", "z"]
             rk1dist = [1, 1, 2, 3, 3, 4]
