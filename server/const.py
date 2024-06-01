@@ -158,6 +158,7 @@ VARIANTS = (
     "spartan",
     "ataxx",
     "paradigm30",
+    "paradigm1320",
     "sandbox",
     "fairyland",
     "randomized",
@@ -219,6 +220,7 @@ VARIANT_ICONS = {
     "duck": "🦆",
     "spartan": "⍺",
     "paradigm30": "🐲",
+    "paradigm1320": "🐲",
     "sandbox": "⛱",
     "randomized": "🎲",
     "fairyland": "🧚",
@@ -246,6 +248,7 @@ VARIANT_960_TO_PGN = {
     "makruk": "Makruk",
     "placement": "Placement",
     "grand": "Grand",
+    "paradigm30": "Paradigm Chess1320"
 }
 
 CATEGORIES = {
@@ -278,6 +281,7 @@ CATEGORIES = {
         "hoppelpoppel",
         "mansindam",
         "paradigm30",
+        "paradigm1320",
         "sandbox",
     ),
     "army": (
@@ -435,6 +439,7 @@ TRANSLATED_VARIANT_NAMES = {
     "3check960": _("Three check 960"),
     "mansindam": _("Mansindam"),
     "paradigm30": _("Paradigm Chess30"),
+    "paradigm1320": _("Paradigm Chess1320"),
     "sandbox": _("Sandbox"),
     "fairyland": _("Fairyland"),
     "randomized": _("Randomized"),

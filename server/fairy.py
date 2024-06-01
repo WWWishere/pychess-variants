@@ -90,7 +90,10 @@ class FairyBoard:
     @staticmethod
     def start_fen(variant, chess960=False, disabled_fen=""):
         if chess960 or variant in ("paradigm30", "randomized", "rand2", "ordarandom"):
-            new_fen = FairyBoard.shuffle_start(variant)
+            if chess960 and variant == "paradigm30":
+                new_fen = FairyBoard.shuffle_start("paradigm1320")
+            else:
+                new_fen = FairyBoard.shuffle_start(variant)
             while new_fen == disabled_fen:
                 new_fen = FairyBoard.shuffle_start(variant)
             return new_fen
@@ -237,7 +240,8 @@ class FairyBoard:
         castl = ""
         capa = variant in ("capablanca", "capahouse")
         seirawan = variant in ("seirawan", "shouse")
-        para = variant == "paradigm30"
+        para = variant in ("paradigm30", "paradigm1320")
+        para1320 = variant == "paradigm1320"
         rand = variant == "randomized"
         rand2 = variant == "rand2"
         rand_o = variant == "ordarandom"
@@ -313,7 +317,7 @@ class FairyBoard:
             positions = [0, 1, 2, 3, 4, 5, 6, 7]
             bright = [1, 3, 5, 7]
             dark = [0, 2, 4, 6]
-        if para:
+        if para and not para1320:
             positions.remove(0)
             positions.remove(7)
             positions.remove(4)
@@ -765,8 +769,11 @@ class FairyBoard:
             random.shuffle(selection)
 
         # 4. one bishop has to be placed upon a bright square
+        # 4.5 without colorbound restrictions, bishop color separation is not needed
         else:
             piece_pos = random.choice(bright)
+            if para1320:
+                piece_pos = random.choice(positions)
             if para:
                 board[piece_pos] = "d"
             elif rand2:
@@ -778,7 +785,10 @@ class FairyBoard:
                 castl += FILES[piece_pos]
 
             # 5. one bishop has to be placed upon a dark square
+            # 5.5 one bishop is placed on any square
             piece_pos = random.choice(dark)
+            if para1320:
+                piece_pos = random.choice(positions)
             if para:
                 board[piece_pos] = "d"
             elif rand2:
@@ -826,7 +836,7 @@ class FairyBoard:
                 castl += FILES[piece_pos]
 
             # 9. set the king upon the center of three free squares left
-            if para:
+            if para and not para1320:
                 positions = [0,4,7]
             piece_pos = positions[1]
             board[piece_pos] = "k"

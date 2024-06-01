@@ -141,22 +141,28 @@ class User:
             or len(self.tournament_sockets) > 0
         )
 
+    def get960name(self, variant: str, chess960: bool):
+        if variant == "paradigm30" and chess960:
+            return "paradigm1320"
+        else:
+            return variant + ("960" if chess960 else "")
+
     def get_rating(self, variant: str, chess960: bool) -> Rating:
         if variant in self.perfs:
-            gl = self.perfs[variant + ("960" if chess960 else "")]["gl"]
-            la = self.perfs[variant + ("960" if chess960 else "")]["la"]
+            gl = self.perfs[self.get960name(variant, chess960)]["gl"]
+            la = self.perfs[self.get960name(variant, chess960)]["la"]
             return gl2.create_rating(gl["r"], gl["d"], gl["v"], la)
         rating = gl2.create_rating()
-        self.perfs[variant + ("960" if chess960 else "")] = DEFAULT_PERF
+        self.perfs[self.get960name(variant, chess960)] = DEFAULT_PERF
         return rating
 
     def get_puzzle_rating(self, variant: str, chess960: bool) -> Rating:
         if variant in self.pperfs:
-            gl = self.pperfs[variant + ("960" if chess960 else "")]["gl"]
-            la = self.pperfs[variant + ("960" if chess960 else "")]["la"]
+            gl = self.pperfs[self.get960name(variant, chess960)]["gl"]
+            la = self.pperfs[self.get960name(variant, chess960)]["la"]
             return gl2.create_rating(gl["r"], gl["d"], gl["v"], la)
         rating = gl2.create_rating()
-        self.pperfs[variant + ("960" if chess960 else "")] = DEFAULT_PERF
+        self.pperfs[self.get960name(variant, chess960)] = DEFAULT_PERF
         return rating
 
     def set_silence(self):
@@ -173,8 +179,8 @@ class User:
             return
         gl = {"r": rating.mu, "d": rating.phi, "v": rating.sigma}
         la = datetime.now(timezone.utc)
-        nb = self.perfs[variant + ("960" if chess960 else "")].get("nb", 0)
-        self.perfs[variant + ("960" if chess960 else "")] = {
+        nb = self.perfs[self.get960name(variant, chess960)].get("nb", 0)
+        self.perfs[self.get960name(variant, chess960)] = {
             "gl": gl,
             "la": la,
             "nb": nb + 1,
@@ -190,8 +196,8 @@ class User:
             return
         gl = {"r": rating.mu, "d": rating.phi, "v": rating.sigma}
         la = datetime.now(timezone.utc)
-        nb = self.pperfs[variant + ("960" if chess960 else "")].get("nb", 0)
-        self.pperfs[variant + ("960" if chess960 else "")] = {
+        nb = self.pperfs[self.get960name(variant, chess960)].get("nb", 0)
+        self.pperfs[self.get960name(variant, chess960)] = {
             "gl": gl,
             "la": la,
             "nb": nb + 1,

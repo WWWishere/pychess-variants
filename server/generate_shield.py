@@ -10,6 +10,8 @@ async def generate_shield(app_state: PychessGlobalAppState):
     for variant in VARIANTS:
         variant960 = variant.endswith("960")
         variant_name = variant[:-3] if variant960 else variant
+        if variant == "paradigm1320":
+            variant_name = "paradigm30"
 
         v = V2C[variant_name]
         z = 1 if variant960 else 0

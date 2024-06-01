@@ -136,7 +136,7 @@ function variant(config: VariantConfig): Variant {
     return {
         name: config.name,
         _displayName: config.displayName ?? config.name,
-        displayName: function (chess960 = false) { return _(this._displayName).toUpperCase() + (chess960 ? '960' : ''); },
+        displayName: function (chess960 = false) { return (this._displayName === "paradigm30" && chess960) ? _("PARADIGM1320") : _(this._displayName).toUpperCase() + (chess960 ? '960' : ''); },
         _tooltip: config.tooltip,
         get tooltip() { return _(this._tooltip) },
         chess960: !!config.chess960,
@@ -895,7 +895,7 @@ export const VARIANTS: Record<string, Variant> = {
     paradigm30: variant({
         name: "paradigm30", tooltip: "Paradigm Chess 30",
         startFen: "rndqkdnr/pppppppp/8/8/8/8/PPPPPPPP/RNDQKDNR w KQkq - 0 1",
-        icon: "🐲",
+        chess960: true, icon: "🐲", icon960: "🐲",
         boardFamily: "standard8x8", pieceFamily: "paradigm",
         pieceRow: ["k", "q", "r", "n", "d", "p"],
 	    rules: { enPassant: true },
