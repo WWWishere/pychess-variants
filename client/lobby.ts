@@ -370,26 +370,14 @@ export class LobbyController implements ChatController {
                         }),
                         h('div#alternate-start-block'),
                         h('div#chess960-block', [
-                            h('label', { attrs: { for: "chess960" } }, "Chess960"),
+                            h('label', { attrs: { id:"chess960-label", for: "chess960" } }, "Chess960"),
                             h('input#chess960', {
                                 props: {
                                     name: "chess960",
                                     type: "checkbox",
                                 },
                                 attrs: {
-                                    checked: vChess960 === "true"
-                                },
-                            }),
-                        ]),
-                        h('div#paradigm1320-block', [
-                            h('label', { attrs: { for: "chess960" } }, "Paradigm1320"),
-                            h('input#chess960', {
-                                props: {
-                                    name: "chess960",
-                                    type: "checkbox",
-                                },
-                                attrs: {
-                                    checked: vChess960 === "true"
+                                    checked: vChess960 === "true",
                                 },
                             }),
                         ]),
@@ -570,8 +558,8 @@ export class LobbyController implements ChatController {
         const variant = VARIANTS[e.options[e.selectedIndex].value];
         const byoyomi = variant.rules.defaultTimeControl === "byoyomi";
         // TODO use toggle class instead of setting style directly
-        document.getElementById('chess960-block')!.style.display =  variant.name !== "paradigm30" && variant.chess960 ? 'block' : 'none';
-        document.getElementById('paradigm1320-block')!.style.display = variant.name === "paradigm30" && variant.chess960 ? 'block' : 'none';
+        document.getElementById('chess960-block')!.style.display = variant.chess960 ? 'block' : 'none';
+        document.getElementById('chess960-label').textContent = variant.name === "paradigm30" ? "Paradigm1320" : "Chess960";
         document.getElementById('byoyomi-period')!.style.display = byoyomi ? 'block' : 'none';
         document.getElementById('corr')!.style.display = this.tcMode === 'corr' ? 'block' : 'none';
         e = document.getElementById('fen') as HTMLInputElement;
