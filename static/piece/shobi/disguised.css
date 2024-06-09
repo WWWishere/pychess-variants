@@ -1,0 +1,6 @@
+.shobi .cg-wrap piece.white {
+    background-image: url('../../images/pieces/disguised/p.svg');
+}
+.shobi .cg-wrap piece.black {
+    background-image: url('../../images/pieces/disguised/b.svg');
+}

@@ -72,6 +72,7 @@ export const PIECE_FAMILIES: Record<string, PieceFamily> = {
     ordarandom: { pieceCSS: ["ordarandom0", "disguised"] },
     rand2: { pieceCSS: ["rand0", "disguised"] },
     shinogi: { pieceCSS: ["shinogi0", "shinogi1", "disguised"] },
+    shobi: { pieceCSS: ["shobi0", "disguised"] },
 };
 
 export interface Variant {
@@ -953,9 +954,23 @@ export const VARIANTS: Record<string, Variant> = {
         startFen: "bcmgkgsnl/1r5f1/ooooppppp/9/9/9/PPPPPOOOO/1F5R1/LNSGKGMCB[-] w - - 0 1",
         icon: "K",
         boardFamily: "shogi9x9", pieceFamily: "shinogi",
+        colors: { first: "Black", second: "White" },
         pieceRow: ["k", "c", "g", "r", "b", "s", "n", "l", "p", "f", "m", "o"],
         pocket: { roles: ["p", "o", "l", "n", "m", "s", "g", "c", "b", "r", "f"], captureToHand: true },
         promotion: { type: "shogi", roles: ["p", "o", "l", "n", "m", "s", "b", "r", "f"] },
+        rules: { defaultTimeControl: "byoyomi", noDrawOffer: true },
+        ui: { pieceSound: "shogi" },
+    }),
+
+    shobi: variant({
+        name: "shobi", tooltip: _("Shogi, but with pieces swapped out."),
+        startFen: "lnsvkvsnl/1q5c1/ppppppppp/9/9/9/PPPPPPPPP/1C5Q1/LNSVKVSNL[-] w - - 0 1",
+        icon: "K",
+        boardFamily: "shogi9x9", pieceFamily: "shobi",
+        colors: { first: "Black", second: "White" },
+        pieceRow: ["k", "p", "l", "n", "s", "v", "c", "q"],
+        promotion: { type: "shogi", roles: ["p", "l", "n", "s", "v", "c", "q"] },
+        pocket: { roles: ["p", "l", "n", "s", "v", "c", "q"], captureToHand: true },
         rules: { defaultTimeControl: "byoyomi", noDrawOffer: true },
         ui: { pieceSound: "shogi" },
     }),
@@ -1028,7 +1043,7 @@ export const noPuzzleVariants = [
 export const variantGroups: { [ key: string ]: { variants: string[] } } = {
     standard: { variants: [ "chess", "crazyhouse", "atomic", "kingofthehill", "3check", "placement", "duck" ] },
     sea:      { variants: [ "makruk", "makpong", "cambodian", "sittuyin", "asean" ] },
-    shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi", "shinogi" ] },
+    shogi:    { variants: [ "shogi", "minishogi", "kyotoshogi", "dobutsu", "gorogoroplus", "torishogi", "shinogi", "shobi" ] },
     xiangqi:  { variants: [ "xiangqi", "manchu", "janggi", "minixiangqi" ] },
     fairy:    { variants: [ "capablanca", "capahouse", "seirawan", "shouse", "grand", "grandhouse", "shako", "shogun", "hoppelpoppel", "mansindam", "paradigm30", "sandbox"] },
     army:     { variants: [ "orda", "synochess", "shinobiplus", "empire", "ordamirror", "chak", "chennis", "spartan", "fairyland", "randomized", "ordarandom", "rand2" ] },

@@ -165,6 +165,7 @@ VARIANTS = (
     "ordarandom",
     "rand2",
     "shinogi",
+    "shobi",
 )
 
 VARIANT_ICONS = {
@@ -227,6 +228,7 @@ VARIANT_ICONS = {
     "ordarandom": "🎲",
     "rand2": "🎲",
     "shinogi": "K",
+    "shobi": "K",
     "kingofthehill": "🏴",
     "kingofthehill960": "🏁",
     "3check": "☰",
@@ -307,6 +309,7 @@ CATEGORIES = {
         "gorogoroplus",
         "torishogi",
         "shinogi",
+        "shobi",
     ),
     "xiangqi": ("xiangqi", "manchu", "janggi", "minixiangqi"),
     "other": ("ataxx"),
@@ -446,6 +449,7 @@ TRANSLATED_VARIANT_NAMES = {
     "ordarandom": _("Orda Random"),
     "rand2": _("Random Mirror"),
     "shinogi": _("Shinogi"),
+    "shobi": _("Shinogi"),
 }
 
 del _
