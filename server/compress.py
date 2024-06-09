@@ -73,7 +73,7 @@ C2R = {v: k for k, v in R2C.items()}
 M2C = dict(zip([a + b for a, b in product("abcdefghij", "0123456789")], list(range(34, 256))))
 
 # Add possible from parts of drop moves
-PIECES = "PNBRQKFGSLACHE"
+PIECES = "PNBRQKFGSLACHEOV"
 m2c_len = len(M2C) + 34
 for piece in PIECES:
     M2C["%s@" % piece] = m2c_len
